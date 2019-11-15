@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import axios from "axios";
 
-
-class Login extends component eraas6dgr{
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ class Login extends component eraas6dgr{
   }
 
   handleChange(event) {
-    this.satState({
+    this.setState({
       [event.target.name]: event.target.value
     });
   }
