@@ -1,14 +1,14 @@
 import React from 'react';
 import { AppBar, Slider, Toolbar, IconButton, Typography } from '@material-ui/core';
-import { Card, CardContent, CardActions, Divider } from '@material-ui/core'
+import { Card } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+
 import Switch from '@material-ui/core/Switch';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
+
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+
 
 
 
@@ -58,20 +58,6 @@ const Dashboard = () => {
     return marks.findIndex(mark => mark.value === value) + 1;
   }
 
-
-
-  const inputLabel = React.useRef(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
-  React.useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
-
-  const handlechange = name => event => {
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-
     return (
       <div>
         <AppBar position="relative">
@@ -95,8 +81,8 @@ const Dashboard = () => {
             />
           </Card>
           <Card className={classes.card}>
-            <h2>Online Mode</h2>
-            <p>Is this application connectednto the internet? </p>
+            <h2>Master Volume</h2>
+            <p>Overrides all other sound settings in this application </p>
 
             <Slider
               defaultValue={20}
@@ -110,13 +96,13 @@ const Dashboard = () => {
 
           </Card>
           <Card className={classes.card}>
-            <h2>Online Mode</h2>
-            <p>Is this application connectednto the internet? </p>
+            <h2>Sound Quality</h2>
+            <p>Manually control the music quality in event of poor connection</p>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="SoundQuality-native-simple">sound</InputLabel>
               <Select
                 native
-                value={state.sound - quality}
+                value={state.SoundQuality}
                 onChange={handleChange('SoundQuality')}
                 inputProps={{
                   name: 'SoundQuality',
@@ -133,7 +119,9 @@ const Dashboard = () => {
 
         </div>
       </div>
-    );
+  
+              );
   }
+  
 
   export default Dashboard;

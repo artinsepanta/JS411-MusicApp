@@ -1,6 +1,6 @@
   import React, {Component} from 'react';
-  import Login from "./Login"
-  import Dashboard from "./Dashboard"
+  import Login from "./components/Login"
+  import Dashboard from "./components/Dashboard"
   import './App.css';
 
   class App extends Component {
