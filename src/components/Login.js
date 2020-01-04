@@ -1,49 +1,42 @@
-import React, { Component } from 'react'
-import {TextField, Button, Container} from '@material-ui/core'
+import React from 'react';
+import { AppBar, Button, TextField, Typography } from '@material-ui/core';
 
-class App extends Component {
-  state = {
-    username: '',
-    password: ''
-  }
+const Login = props => (
+	<div className="login-container">
+		<AppBar position="static">
+			<Typography>Sign In</Typography>
+		</AppBar>
+		<form className="login-form">
+			<TextField
+				variant="outlined"
+				margin="normal"
+				
+				fullWidth
+				id="email"
+				label="Email Address"
+				name="email"
+				autoComplete="email"
+				autoFocus
+			/>
+			<TextField 
+				variant="outlined"
+				margin="normal"
+				
+				fullWidth
+				name="password"
+				label="Password"
+				type="password"
+				id="password"
+				autoComplete="current-password"
+			/>
+			<Button
+				fullWidth
+				variant="contained"
+				color="primary"
+				onClick={() => { props.Login() }}
+			>Login</Button>
+		</form>
+	</div>
+)
 
-  handleTextChange = (e) => {
-    const state = { ...this.state }
-    state[e.target.name] = e.target.value
-    this.setState(state)
-  }
-
-
-  render() {
-    return (
-      <div className="App">
-        <Container maxWidth="sm">
-          <form className="login-form" onSubmit={this.login}>
-            <TextField
-              required
-              onChange={this.handleTextChange}
-              value={this.state.username}
-              name="username"
-              label="Username"
-              type="text" />
-            <TextField
-              required
-              onChange={this.handleTextChange}
-              value={this.state.password}
-              name="password"
-              label="Password"
-              type="password" />
-            <Button
-              type="submit"
-              className="login-button"
-              variant="contained"
-              color="primary">Login</Button>
-          </form>
-        </Container>
-      </div>
-    );
-  }
-}
-
-export default App ;
-
+export default Login;

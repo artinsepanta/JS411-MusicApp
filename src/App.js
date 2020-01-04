@@ -1,17 +1,22 @@
   import React, {Component} from 'react';
   import Login from "./components/Login"
-  import Dashboard from "./components/Dashboard"
+  import Navigation from "./components/Navigation"
+  import OnlineSwitch from "./components/OnlineSwitch"
+  import SliderCard from "./components/SliderCard"
+  import SoundQuality from "./components/SoundQuality"
+  import VolumeSlider from "./components/VolumeSlider"
   import './App.css';
 
   class App extends Component {
     render(){
     return (
       <div className="App">
-        {/*<div className ="title">My Music App</div>*/}
-        <Dashboard/>
+        <Navigation/>
+        <OnlineSwitch/>
         <Login/>
-        
-        
+        <SliderCard/>
+        <SoundQuality/>
+        <VolumeSlider/>
       </div>
     );
   }
